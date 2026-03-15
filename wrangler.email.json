@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "email-receiver-worker",
+  "compatibility_date": "2024-03-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "workers/email-receiver.ts",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "migrations_dir": "drizzle",
+      "database_name": "moemail",
+      "database_id": "e276401e-d58f-4115-af1c-af292b9265a6"
+    }
+  ]
+}
