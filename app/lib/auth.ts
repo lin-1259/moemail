@@ -96,6 +96,7 @@ export const {
 } = NextAuth(() => ({
   secret: process.env.AUTH_SECRET,
   trustHost: true,
+  skipCSRFCheck: true,
   adapter: DrizzleAdapter(createDb(), {
     usersTable: users,
     accountsTable: accounts,
