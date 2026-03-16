@@ -97,7 +97,8 @@ export const {
 } = NextAuth(() => ({
   secret: process.env.AUTH_SECRET,
   trustHost: true,
-  skipCSRFCheck: skipCSRFCheck,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ...(({ skipCSRFCheck }) => ({ skipCSRFCheck } as any))({ skipCSRFCheck }),
   adapter: DrizzleAdapter(createDb(), {
     usersTable: users,
     accountsTable: accounts,
