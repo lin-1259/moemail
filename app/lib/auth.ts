@@ -1,4 +1,5 @@
 import NextAuth from "next-auth"
+import { skipCSRFCheck } from "@auth/core"
 import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
@@ -96,6 +97,7 @@ export const {
 } = NextAuth(() => ({
   secret: process.env.AUTH_SECRET,
   trustHost: true,
+  skipCSRFCheck: skipCSRFCheck,
   adapter: DrizzleAdapter(createDb(), {
     usersTable: users,
     accountsTable: accounts,
